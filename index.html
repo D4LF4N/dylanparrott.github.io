@@ -626,8 +626,27 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         
-        <!-- Masonry JS -->
+       <!-- Include imagesLoaded -->
+        <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
+        <!-- Include Masonry (if not already included) -->
         <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+        <!-- Your custom Masonry layout script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var grid = document.querySelector('#portfolio-grid');
+
+                var msnry = new Masonry(grid, {
+                    itemSelector: '.col-md-6',
+                    percentPosition: true
+                });
+
+                imagesLoaded(grid, function () {
+                    msnry.layout();
+                });
+            });
+        </script>
 
         <!-- Based on Start Bootstrap Freelancer Template -->
 
